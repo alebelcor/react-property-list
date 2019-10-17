@@ -29,7 +29,7 @@ const HomePage = () => {
         To visit this Welcome page go back on your browser history or go to the root URL.
       </p>
 
-      <Link to="/properties" css={propertiesLinkStyle}>
+      <Link to={`${process.env.PUBLIC_URL}/properties`} css={propertiesLinkStyle}>
         Continue to Properties page
       </Link>
     </Fragment>

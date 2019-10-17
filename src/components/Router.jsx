@@ -9,8 +9,8 @@ import PropertyPage from './PropertyPage';
 const AppRouter = () => {
   return (
     <Router basepath={`${process.env.PUBLIC_URL}/`}>
-      <App path="/">
-        <HomePage path="/" />
+      <App path={`${process.env.PUBLIC_URL}/`}>
+        <HomePage path={`${process.env.PUBLIC_URL}/`} />
         <PropertiesPage path="properties" default />
         <PropertyPage path="properties/:propertyId" />
       </App>

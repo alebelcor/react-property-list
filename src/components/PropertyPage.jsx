@@ -20,12 +20,12 @@ const PropertyPage = ({ propertyId }) => {
 
   const propertyIdNumber = parseInt(propertyId, 10);
   if (Number.isNaN(propertyIdNumber)) {
-    return <Redirect to="/properties" noThrow />
+    return <Redirect to={`${process.env.PUBLIC_URL}/properties`} noThrow />
   }
 
   const property = properties.find(property => property.id === propertyIdNumber);
   if (typeof property === 'undefined') {
-    return <Redirect to="/properties" noThrow />
+    return <Redirect to={`${process.env.PUBLIC_URL}/properties`} noThrow />
   }
 
   const {

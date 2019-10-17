@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <header css={headerStyle}>
       <h1 css={logoStyle}>
-        <Link to="/properties">
+        <Link to={`${process.env.PUBLIC_URL}/properties`}>
           <img src={logo} alt="Roofstock logo" />
         </Link>
       </h1>

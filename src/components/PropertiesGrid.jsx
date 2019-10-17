@@ -19,7 +19,7 @@ const PropertiesGrid = ({ properties }) => {
       {properties.map(property => {
         return withPropertyData(PropertyGridItem, {
           key: property.id,
-          propertyDetailUrl: `/properties/${property.id}`,
+          propertyDetailUrl: `${process.env.PUBLIC_URL}/properties/${property.id}`,
           formattedListPrice: getFormattedCurrency(property.financial.listPrice),
           formattedMonthlyRent: getFormattedCurrency(property.financial.monthlyRent),
           grossYield: getGrossYield(property.financial.monthlyRent, property.financial.listPrice),

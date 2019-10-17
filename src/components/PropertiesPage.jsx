@@ -57,7 +57,7 @@ const PropertiesPage = ({ location }) => {
         </h3>
 
         <div css={displayActions}>
-          <Link to="/properties" css={css`
+          <Link to={`${process.env.PUBLIC_URL}/properties`} css={css`
             ${displayActionButton};
             ${isListView ? `` : displayActionButtonActive};
           `}>
@@ -65,7 +65,7 @@ const PropertiesPage = ({ location }) => {
             <span css={srOnly}>Click to activate the grid view</span>
           </Link>
 
-          <Link to="/properties?dv=list" css={css`
+          <Link to={`${process.env.PUBLIC_URL}/properties?dv=list`} css={css`
             ${displayActionButton};
             ${isListView ? displayActionButtonActive : ``};
           `}>
