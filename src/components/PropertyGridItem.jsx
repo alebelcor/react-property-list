@@ -21,15 +21,13 @@ import { srOnly } from '../styles/utils.css';
 
 const PropertyGridItem = ({
   mainImageUrl,
-  propertyDetailUrl,
+  detailUrl,
   formattedListPrice,
   formattedMonthlyRent,
   grossYield,
-  physical: {
-    yearBuilt,
-  },
+  yearBuilt,
   address: {
-    address1: streetAndNumber,
+    streetAndNumber,
     city,
     state,
     zip,
@@ -46,7 +44,7 @@ const PropertyGridItem = ({
           <div css={propertyYearBuilt}>Built in {yearBuilt}</div>
         </div>
 
-        <Link to={propertyDetailUrl} css={propertyLinkStyle}>
+        <Link to={detailUrl} css={propertyLinkStyle}>
           <span css={srOnly}>Go to property details: {`${streetAndNumber}, ${city}, ${state} ${zip}${zipPlus4 && `-${zipPlus4}`}`}</span>
         </Link>
       </div>

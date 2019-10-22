@@ -16,15 +16,13 @@ import { srOnly } from '../styles/utils.css';
 
 const PropertyListItem = ({
   mainImageUrl,
-  propertyDetailUrl,
+  detailUrl,
   formattedListPrice,
   formattedMonthlyRent,
   grossYield,
-  physical: {
-    yearBuilt,
-  },
+  yearBuilt,
   address: {
-    address1: streetAndNumber,
+    streetAndNumber,
     city,
     state,
     zip,
@@ -34,14 +32,14 @@ const PropertyListItem = ({
   return (
     <tr css={propertyTableRowStyle}>
       <td css={propertyTableCellStyle}>
-        <Link to={propertyDetailUrl}>
+        <Link to={detailUrl}>
           <img css={propertyImageStyle} src={mainImageUrl} alt="" />
           <span css={srOnly}>Go to property details: {`${streetAndNumber}, ${city}, ${state} ${zip}${zipPlus4 ? `-${zipPlus4}` : ``}`}</span>
         </Link>
       </td>
 
       <td css={propertyTableCellStyle}>
-        <Link to={propertyDetailUrl} css={propertyAddressStyle}>
+        <Link to={detailUrl} css={propertyAddressStyle}>
           {streetAndNumber}
 
           <span css={propertyCityStateZipStyle}>
@@ -67,7 +65,7 @@ const PropertyListItem = ({
       </td>
 
       <td css={propertyGoToDetailsCellStyle}>
-        <Link to={propertyDetailUrl} css={propertyGoToDetailsActionStyle}>
+        <Link to={detailUrl} css={propertyGoToDetailsActionStyle}>
           See&nbsp;details
         </Link>
       </td>

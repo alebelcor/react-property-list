@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { Fragment, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Redirect } from '@reach/router';
-import { useSessionStorage } from 'react-use';
 
 import Carousel from './Carousel';
 
@@ -12,7 +12,7 @@ import {
 } from '../styles/PropertyPage.css';
 
 const PropertyPage = ({ propertyId }) => {
-  const [properties] = useSessionStorage('coding-exercise-properties', []);
+  const properties = useSelector(state => state.properties);
 
   useEffect(() => {
     document.title = 'Property detail page';
@@ -29,19 +29,15 @@ const PropertyPage = ({ propertyId }) => {
   }
 
   const {
-    resources: {
-      photos,
-    },
-    physical: {
-      yearBuilt,
-    },
+    photos,
+    yearBuilt,
     address: {
-      address1: streetAndNumber,
+      streetAndNumber,
       city,
       state,
       zip,
       zipPlus4,
-    }
+    },
   } = property;
 
   return (

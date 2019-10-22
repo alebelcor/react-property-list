@@ -4,10 +4,6 @@ import { jsx } from '@emotion/core';
 import PropertyListItem from './PropertyListItem';
 
 import withPropertyData from '../helpers/withPropertyData';
-import {
-  getFormattedCurrency,
-  getGrossYield
-} from '../helpers/utils';
 
 import {
   propertiesTableStyle,
@@ -64,11 +60,7 @@ const PropertiesList = ({ properties }) => {
       {properties.map(property => {
         return withPropertyData(PropertyListItem, {
           key: property.id,
-          propertyDetailUrl: `${process.env.PUBLIC_URL}/properties/${property.id}`,
-          formattedListPrice: getFormattedCurrency(property.financial.listPrice),
-          formattedMonthlyRent: getFormattedCurrency(property.financial.monthlyRent),
-          grossYield: getGrossYield(property.financial.monthlyRent, property.financial.listPrice),
-          ...property
+          ...property,
         });
       })}
       </tbody>

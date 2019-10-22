@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { Fragment, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from '@reach/router';
-import { useSessionStorage } from 'react-use';
-import ky from 'ky';
 import queryString from 'query-string';
+
+import requestProperties from '../redux/actions/request-properties';
 
 import PropertiesGrid from './PropertiesGrid';
 import PropertiesList from './PropertiesList';
@@ -22,28 +23,23 @@ import {
   srOnly,
 } from '../styles/utils.css';
 
-const DATA_SOURCE = 'https://dev1-sample.azurewebsites.net/properties.json';
-
 const PropertiesPage = ({ location }) => {
-  const [properties, setProperties] = useSessionStorage('coding-exercise-properties', []);
+  const dispatch = useDispatch();
+  const properties = useSelector(state => state.properties);
+  const isLoading = useSelector(state => state.isLoading);
 
   const isListView = queryString.parse(location.search).dv === 'list';
 
   useEffect(() => {
     document.title = 'Property listing page';
 
-    const fetch = async () => {
-      const response = await ky.get(DATA_SOURCE).json();
-      setProperties(response.properties.filter(property => property.status !== 'OffMarket'));
-    };
-
     if (properties.length === 0) {
-      fetch();
+      dispatch(requestProperties());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (properties.length === 0) {
+  if (isLoading) {
     return (
       <h3>Loading...</h3>
     );
