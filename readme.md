@@ -1,6 +1,6 @@
 # React Property List
 
->Property list/detail showcase web app written with React/Reach Router/Emotion
+>Property list/detail showcase web app written with React/Redux/Reach Router/Emotion
 
 [Demo site](https://alebelcor.github.io/react-property-list)
 
