@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect } from '@reach/router';
+import { useParams, Redirect } from 'react-router-dom';
 
 import Carousel from './Carousel';
 
@@ -11,8 +11,9 @@ import {
   propertyCityStateZipStyle,
 } from '../styles/PropertyPage.css';
 
-const PropertyPage = ({ propertyId }) => {
+const PropertyPage = () => {
   const properties = useSelector(state => state.properties);
+  const { propertyId } = useParams();
 
   useEffect(() => {
     document.title = 'Property detail page';
@@ -20,12 +21,12 @@ const PropertyPage = ({ propertyId }) => {
 
   const propertyIdNumber = parseInt(propertyId, 10);
   if (Number.isNaN(propertyIdNumber)) {
-    return <Redirect to={`${process.env.PUBLIC_URL}/properties`} noThrow />
+    return <Redirect to="/properties" />
   }
 
   const property = properties.find(property => property.id === propertyIdNumber);
   if (typeof property === 'undefined') {
-    return <Redirect to={`${process.env.PUBLIC_URL}/properties`} noThrow />
+    return <Redirect to="/properties" />
   }
 
   const {

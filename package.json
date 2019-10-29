@@ -8,7 +8,6 @@
   "author": "Alejandro Beltrán Coronado",
   "dependencies": {
     "@emotion/core": "^10.0.21",
-    "@reach/router": "^1.2.1",
     "flickity": "^2.2.1",
     "ky": "^0.15.0",
     "picturefill": "^3.0.3",
@@ -16,6 +15,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"

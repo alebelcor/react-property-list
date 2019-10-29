@@ -1,11 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Global } from '@emotion/core';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { loadState, saveState } from '../services/session-storage';
 import configureStore from '../redux/configure-store';
 
-import Router from './Router';
+import App from './App';
+import HomePage from './HomePage';
+import PropertiesPage from './PropertiesPage';
 
 import indexStyle from '../styles/index.css';
 
@@ -20,7 +23,19 @@ const Root = () => {
   return (
     <Provider store={store}>
       <Global styles={indexStyle} />
-      <Router />
+
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <App>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/properties">
+              <PropertiesPage />
+            </Route>
+          </Switch>
+        </App>
+      </BrowserRouter>
     </Provider>
   )
 };

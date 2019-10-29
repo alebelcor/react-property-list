@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 import logo from '../images/logo.svg';
 
@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <header css={headerStyle}>
       <h1 css={logoStyle}>
-        <Link to={`${process.env.PUBLIC_URL}/properties`}>
+        <Link to="/properties">
           <img src={logo} alt="Roofstock logo" />
         </Link>
       </h1>

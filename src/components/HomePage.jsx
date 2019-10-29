@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Fragment, useEffect } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 import {
   propertiesLinkStyle,
@@ -29,7 +29,7 @@ const HomePage = () => {
         To visit this Welcome page go back on your browser history or go to the root URL.
       </p>
 
-      <Link to={`${process.env.PUBLIC_URL}/properties`} css={propertiesLinkStyle}>
+      <Link to="/properties" css={propertiesLinkStyle}>
         Continue to Properties page
       </Link>
     </Fragment>

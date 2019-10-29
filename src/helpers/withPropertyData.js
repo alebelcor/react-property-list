@@ -8,7 +8,7 @@ import {
 export default (WrappedComponent, props) => {
   return (
     <WrappedComponent
-      detailUrl={`${process.env.PUBLIC_URL}/properties/${props.id}`}
+      detailUrl={`/properties/${props.id}`}
       formattedListPrice={getFormattedCurrency(props.listPrice)}
       formattedMonthlyRent={getFormattedCurrency(props.monthlyRent)}
       grossYield={getGrossYield(props.monthlyRent, props.listPrice)}
